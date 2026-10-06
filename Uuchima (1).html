@@ -1,0 +1,552 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroFix | Mantenimiento Electrónico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">
+            <span>⚡</span> ElectroFix
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#mantenimiento">Mantenimiento</a>
+            <a href="#tutoriales">Tutoriales</a>
+            <a href="#tienda">Tienda</a>
+            <a href="#seguridad">Seguridad</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <button class="menu-btn" onclick="mostrarMenu()">☰</button>
+    </header>
+
+
+    <!-- INICIO -->
+    <section id="inicio" class="hero">
+
+        <div class="hero-text">
+            <p class="etiqueta">MANTENIMIENTO ELECTRÓNICO</p>
+
+            <h1>
+                Cuida, repara y
+                <span>mantén</span> tus dispositivos
+            </h1>
+
+            <p>
+                Aprende de manera sencilla cómo realizar mantenimiento
+                preventivo y solucionar problemas comunes en dispositivos
+                electrónicos.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#tutoriales" class="btn principal">
+                    Ver tutoriales
+                </a>
+
+                <a href="#tienda" class="btn secundario">
+                    Ver materiales
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="device-icon">🔧</div>
+            <h3>Mantenimiento inteligente</h3>
+            <p>
+                Información, herramientas y materiales para cuidar
+                correctamente tus equipos electrónicos.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- ESTADÍSTICAS -->
+    <section class="stats">
+
+        <div>
+            <strong>15+</strong>
+            <p>Tutoriales</p>
+        </div>
+
+        <div>
+            <strong>20+</strong>
+            <p>Herramientas</p>
+        </div>
+
+        <div>
+            <strong>10+</strong>
+            <p>Problemas comunes</p>
+        </div>
+
+        <div>
+            <strong>100%</strong>
+            <p>Contenido educativo</p>
+        </div>
+
+    </section>
+
+
+    <!-- MANTENIMIENTO -->
+    <section id="mantenimiento" class="section">
+
+        <div class="section-title">
+            <p>CONOCE MÁS</p>
+            <h2>Tipos de mantenimiento</h2>
+            <span>
+                Existen diferentes formas de mantener un dispositivo
+                electrónico funcionando correctamente.
+            </span>
+        </div>
+
+        <div class="cards">
+
+            <article class="info-card">
+                <div class="card-icon">🧹</div>
+                <h3>Mantenimiento preventivo</h3>
+                <p>
+                    Consiste en realizar revisiones y limpieza periódica
+                    para evitar fallas antes de que ocurran.
+                </p>
+
+                <ul>
+                    <li>Limpieza de componentes</li>
+                    <li>Revisión de conexiones</li>
+                    <li>Control de temperatura</li>
+                    <li>Revisión de cables</li>
+                </ul>
+            </article>
+
+
+            <article class="info-card">
+                <div class="card-icon">🔩</div>
+                <h3>Mantenimiento correctivo</h3>
+                <p>
+                    Se realiza cuando un dispositivo presenta una falla
+                    y es necesario identificar y solucionar el problema.
+                </p>
+
+                <ul>
+                    <li>Diagnóstico de fallas</li>
+                    <li>Cambio de componentes</li>
+                    <li>Reparación de conexiones</li>
+                    <li>Pruebas de funcionamiento</li>
+                </ul>
+            </article>
+
+
+            <article class="info-card">
+                <div class="card-icon">🔍</div>
+                <h3>Diagnóstico</h3>
+                <p>
+                    Permite identificar las posibles causas de un problema
+                    antes de realizar cualquier reparación.
+                </p>
+
+                <ul>
+                    <li>Inspección visual</li>
+                    <li>Uso del multímetro</li>
+                    <li>Prueba de alimentación</li>
+                    <li>Identificación de componentes</li>
+                </ul>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TUTORIALES -->
+    <section id="tutoriales" class="section tutorials">
+
+        <div class="section-title">
+            <p>APRENDE PASO A PASO</p>
+            <h2>Tutoriales de mantenimiento</h2>
+            <span>
+                Selecciona un problema para conocer las recomendaciones
+                básicas de diagnóstico y mantenimiento.
+            </span>
+        </div>
+
+        <div class="search-box">
+            <input
+                type="text"
+                id="buscador"
+                placeholder="🔎 Buscar tutorial..."
+                onkeyup="buscarTutorial()"
+            >
+        </div>
+
+
+        <div class="tutorial-grid" id="tutorialGrid">
+
+            <article class="tutorial">
+                <div class="tutorial-number">01</div>
+                <h3>El computador se sobrecalienta</h3>
+
+                <p>
+                    Una temperatura elevada puede estar relacionada con
+                    acumulación de polvo, ventilación insuficiente u otros
+                    problemas del sistema de refrigeración.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Sobrecalentamiento',
+                    'Apaga y desconecta el equipo. Realiza una inspección visual de las rejillas de ventilación y elimina el polvo utilizando métodos adecuados. Verifica que los ventiladores funcionen correctamente. Si el problema continúa, es recomendable acudir a un técnico.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+
+            <article class="tutorial">
+                <div class="tutorial-number">02</div>
+                <h3>El computador no enciende</h3>
+
+                <p>
+                    Antes de desmontar el equipo se deben comprobar
+                    elementos básicos como la alimentación eléctrica,
+                    cables y conexiones.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Equipo que no enciende',
+                    'Comprueba que el cable de alimentación esté correctamente conectado y que la fuente eléctrica funcione. Revisa las conexiones visibles. Si el dispositivo continúa sin encender, no manipules componentes internos conectados a la corriente y solicita asistencia técnica.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+
+            <article class="tutorial">
+                <div class="tutorial-number">03</div>
+                <h3>Problemas con el teclado</h3>
+
+                <p>
+                    Algunas teclas pueden dejar de responder debido a
+                    suciedad, conexiones deficientes o problemas de
+                    configuración.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Problemas con el teclado',
+                    'Desconecta el teclado antes de limpiarlo. Utiliza aire adecuado para retirar partículas y revisa el cable o conexión. En teclados inalámbricos, comprueba las baterías. Si algunas teclas continúan sin funcionar, puede existir una falla interna.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+
+            <article class="tutorial">
+                <div class="tutorial-number">04</div>
+                <h3>El celular se calienta demasiado</h3>
+
+                <p>
+                    El calentamiento puede producirse por uso intensivo,
+                    aplicaciones exigentes, problemas de batería u otras
+                    causas.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Celular con temperatura elevada',
+                    'Cierra aplicaciones que no estés utilizando y deja que el dispositivo se enfríe. Evita utilizarlo mientras se encuentra conectado a una fuente de alimentación si está excesivamente caliente. Si el calentamiento se repite, solicita una revisión técnica.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+
+            <article class="tutorial">
+                <div class="tutorial-number">05</div>
+                <h3>USB que no reconoce dispositivos</h3>
+
+                <p>
+                    El problema puede estar relacionado con el puerto,
+                    el cable, los controladores o el dispositivo conectado.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Puerto USB',
+                    'Prueba otro puerto y otro cable compatible. Comprueba si el sistema reconoce otros dispositivos. Revisa visualmente el puerto sin introducir objetos metálicos. Si el puerto presenta daños físicos, debe ser revisado por un técnico.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+
+            <article class="tutorial">
+                <div class="tutorial-number">06</div>
+                <h3>Limpieza de dispositivos</h3>
+
+                <p>
+                    La limpieza periódica ayuda a reducir la acumulación
+                    de polvo y suciedad en las superficies y sistemas
+                    de ventilación.
+                </p>
+
+                <button onclick="mostrarTutorial(
+                    'Limpieza electrónica',
+                    'Apaga y desconecta el dispositivo. Utiliza herramientas de limpieza apropiadas para electrónica y evita aplicar líquidos directamente sobre los componentes. Espera a que todo esté completamente seco antes de volver a conectar el equipo.'
+                )">
+                    Ver tutorial →
+                </button>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- TIENDA -->
+    <section id="tienda" class="section shop">
+
+        <div class="section-title">
+            <p>TIENDA</p>
+            <h2>Materiales y herramientas</h2>
+            <span>
+                Productos básicos utilizados para realizar trabajos
+                de mantenimiento electrónico.
+            </span>
+        </div>
+
+        <div class="products">
+
+            <article class="product">
+                <div class="product-image">🔧</div>
+                <h3>Kit de destornilladores</h3>
+                <p>Juego de herramientas para trabajos electrónicos.</p>
+                <strong>$8.50</strong>
+                <button onclick="agregarCarrito('Kit de destornilladores', 8.50)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+
+            <article class="product">
+                <div class="product-image">📏</div>
+                <h3>Multímetro digital</h3>
+                <p>Instrumento para realizar mediciones eléctricas.</p>
+                <strong>$18.00</strong>
+                <button onclick="agregarCarrito('Multímetro digital', 18)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+
+            <article class="product">
+                <div class="product-image">🧹</div>
+                <h3>Brocha antiestática</h3>
+                <p>Herramienta para retirar polvo de componentes.</p>
+                <strong>$3.50</strong>
+                <button onclick="agregarCarrito('Brocha antiestática', 3.50)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+
+            <article class="product">
+                <div class="product-image">🧴</div>
+                <h3>Alcohol isopropílico</h3>
+                <p>Producto utilizado para limpieza de componentes compatibles.</p>
+                <strong>$5.00</strong>
+                <button onclick="agregarCarrito('Alcohol isopropílico', 5)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+
+            <article class="product">
+                <div class="product-image">🧤</div>
+                <h3>Guantes de protección</h3>
+                <p>Elemento de protección para determinados trabajos.</p>
+                <strong>$4.00</strong>
+                <button onclick="agregarCarrito('Guantes de protección', 4)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+
+            <article class="product">
+                <div class="product-image">💨</div>
+                <h3>Aire para limpieza</h3>
+                <p>Para retirar polvo de zonas de difícil acceso.</p>
+                <strong>$6.00</strong>
+                <button onclick="agregarCarrito('Aire para limpieza', 6)">
+                    Agregar al carrito
+                </button>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARRITO -->
+    <section class="cart-section">
+
+        <div class="cart">
+
+            <div>
+                <span>🛒</span>
+                <strong>Carrito de compras</strong>
+            </div>
+
+            <p>
+                Productos seleccionados:
+                <b id="cantidad">0</b>
+            </p>
+
+            <p>
+                Total:
+                <b>$<span id="total">0.00</span></b>
+            </p>
+
+            <button onclick="vaciarCarrito()">
+                Vaciar carrito
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SEGURIDAD -->
+    <section id="seguridad" class="security">
+
+        <div class="security-content">
+
+            <div>
+                <p class="etiqueta">IMPORTANTE</p>
+                <h2>Trabaja siempre con seguridad</h2>
+
+                <p>
+                    Antes de realizar mantenimiento, identifica el tipo
+                    de dispositivo y sigue las recomendaciones del
+                    fabricante. Algunos equipos pueden contener partes
+                    eléctricas peligrosas incluso después de desconectarlos.
+                </p>
+            </div>
+
+            <div class="security-list">
+
+                <div>
+                    <span>✓</span>
+                    <p>Desconecta el equipo antes de realizar mantenimiento.</p>
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    <p>Utiliza herramientas apropiadas para electrónica.</p>
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    <p>Mantén organizada tu área de trabajo.</p>
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    <p>No manipules componentes que desconozcas.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section contact">
+
+        <div class="section-title">
+            <p>CONTÁCTANOS</p>
+            <h2>¿Tienes alguna pregunta?</h2>
+            <span>
+                Envíanos un mensaje para obtener más información.
+            </span>
+        </div>
+
+        <form onsubmit="enviarFormulario(event)">
+
+            <div class="form-row">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+
+            <textarea
+                id="mensaje"
+                placeholder="Escribe tu mensaje..."
+                required>
+            </textarea>
+
+            <button class="btn principal" type="submit">
+                Enviar mensaje
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- MODAL TUTORIAL -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="cerrarTutorial()">×</button>
+
+            <span class="modal-icon">🔧</span>
+
+            <h2 id="modalTitulo">Tutorial</h2>
+
+            <p id="modalTexto"></p>
+
+            <button class="btn principal" onclick="cerrarTutorial()">
+                Entendido
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <div class="footer-logo">
+            ⚡ ElectroFix
+        </div>
+
+        <p>
+            Sitio educativo sobre mantenimiento de dispositivos electrónicos.
+        </p>
+
+        <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#tutoriales">Tutoriales</a>
+            <a href="#tienda">Tienda</a>
+        </div>
+
+        <hr>
+
+        <p>
+            © 2026 ElectroFix | Proyecto educativo
+        </p>
+
+    </footer>
+
+
+    <script src="Uruchima.js"></script>
+
+</body>
+</html>
+```

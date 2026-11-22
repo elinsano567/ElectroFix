@@ -117,6 +117,44 @@ document.addEventListener("DOMContentLoaded", function () {
         if (modal && event.target === modal) modal.style.display = "none";
     });
 
+    // VISOR: ampliar las imágenes de los productos al hacer clic
+    document.querySelectorAll(".product-image img").forEach(function (imagen) {
+        imagen.classList.add("imagen-ampliable");
+        imagen.setAttribute("tabindex", "0");
+        imagen.setAttribute("role", "button");
+        imagen.setAttribute("aria-label", "Ampliar imagen: " + (imagen.alt || "producto"));
+        imagen.addEventListener("click", function () {
+            const visor = document.getElementById("visorProducto");
+            const ampliada = document.getElementById("imagenAmpliada");
+            const nombre = document.getElementById("nombreImagenProducto");
+            if (!visor || !ampliada) return;
+            ampliada.src = imagen.src;
+            ampliada.alt = imagen.alt;
+            if (nombre) nombre.textContent = imagen.closest(".product")?.querySelector("h3")?.textContent || imagen.alt;
+            visor.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+        imagen.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                imagen.click();
+            }
+        });
+    });
+
+    window.cerrarImagenProducto = function (event, forzar) {
+        const visor = document.getElementById("visorProducto");
+        if (!visor) return;
+        if (forzar || event.target === visor) {
+            visor.style.display = "none";
+            document.body.style.overflow = "";
+        }
+    };
+
+    window.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") window.cerrarImagenProducto({ target: document.getElementById("visorProducto") });
+    });
+
     // BUSCADOR DE TUTORIALES
     window.buscarTutorial = function () {
         const buscador = document.getElementById("buscador");

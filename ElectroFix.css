@@ -389,6 +389,24 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
+/* Imágenes de productos más pequeñas y proporcionadas */
+.product-image {
+    height: 125px;
+    padding: 12px;
+    overflow: hidden;
+}
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 115px;
+    max-height: 100px;
+    margin: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+
 .product h3 {
     margin-bottom: 8px;
 }

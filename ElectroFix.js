@@ -155,15 +155,41 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.key === "Escape") window.cerrarImagenProducto({ target: document.getElementById("visorProducto") });
     });
 
-    // BUSCADOR DE TUTORIALES
-    window.buscarTutorial = function () {
+    // FILTRO POR TIPO DE MANTENIMIENTO Y BÚSQUEDA DE TUTORIALES
+    window.filtrarTutoriales = function () {
+        const filtro = document.getElementById("filtroMantenimiento");
         const buscador = document.getElementById("buscador");
-        if (!buscador) return;
+        const estado = document.getElementById("tutorialEstado");
+        if (!filtro || !buscador) return;
 
-        const texto = buscador.value.toLowerCase();
-        document.querySelectorAll(".tutorial").forEach(function (tutorial) {
-            tutorial.style.display = tutorial.textContent.toLowerCase().includes(texto) ? "block" : "none";
+        const tipoSeleccionado = filtro.value;
+        const texto = buscador.value.trim().toLocaleLowerCase("es");
+        const tutoriales = document.querySelectorAll(".tutorial");
+        let visibles = 0;
+
+        tutoriales.forEach(function (tutorial) {
+            const coincideTipo = tipoSeleccionado === "todos" ||
+                (tipoSeleccionado !== "" && tutorial.dataset.tipo === tipoSeleccionado);
+            const coincideTexto = tutorial.textContent.toLocaleLowerCase("es").includes(texto);
+            const mostrar = coincideTipo && coincideTexto;
+            tutorial.hidden = !mostrar;
+            if (mostrar) visibles++;
         });
+
+        if (estado) {
+            if (!tipoSeleccionado) {
+                estado.textContent = "Selecciona mantenimiento preventivo o correctivo para ver los tutoriales correspondientes.";
+            } else if (visibles === 0) {
+                estado.textContent = "No se encontraron tutoriales con esos criterios.";
+            } else {
+                const nombreTipo = tipoSeleccionado === "todos"
+                    ? "Todos los tutoriales"
+                    : tipoSeleccionado === "preventivo"
+                        ? "Mantenimiento preventivo"
+                        : "Mantenimiento correctivo";
+                estado.textContent = nombreTipo + ": " + visibles + (visibles === 1 ? " tutorial disponible." : " tutoriales disponibles.");
+            }
+        }
     };
 
     // FORMULARIO DE CONTACTO

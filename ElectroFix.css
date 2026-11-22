@@ -389,18 +389,18 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-/* Imágenes de productos más pequeñas y proporcionadas */
+/* Imágenes de productos compactas y centradas */
 .product-image {
-    height: 125px;
-    padding: 12px;
+    height: 105px;
+    padding: 10px;
     overflow: hidden;
 }
 .product-image img {
     display: block;
     width: 100%;
     height: 100%;
-    max-width: 115px;
-    max-height: 100px;
+    max-width: 85px;
+    max-height: 75px;
     margin: auto;
     object-fit: contain;
     border-radius: 8px;

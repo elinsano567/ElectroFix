@@ -170,8 +170,7 @@ ElectroFix
  <div class="search-box tutorial-filters">
  <label for="filtroMantenimiento">Tipo de mantenimiento</label>
  <select id="filtroMantenimiento" onchange="filtrarTutoriales()">
-  <option value="">Selecciona un tipo de mantenimiento</option>
-  <option value="preventivo">Mantenimiento preventivo</option>
+  <option value="preventivo" selected>Mantenimiento preventivo</option>
   <option value="correctivo">Mantenimiento correctivo</option>
   <option value="todos">Mostrar todos los tutoriales</option>
  </select>
@@ -182,7 +181,7 @@ ElectroFix
   oninput="filtrarTutoriales()"
   aria-label="Buscar tutorial por nombre"
  >
- <p id="tutorialEstado" class="tutorial-status" aria-live="polite">Selecciona mantenimiento preventivo o correctivo para ver los tutoriales correspondientes.</p>
+ <p id="tutorialEstado" class="tutorial-status" aria-live="polite">Mantenimiento preventivo: 4 tutoriales disponibles.</p>
 </div>
 
 

@@ -167,19 +167,28 @@ ElectroFix
  </span>
  </div>
 
- <div class="search-box">
+ <div class="search-box tutorial-filters">
+ <label for="filtroMantenimiento">Tipo de mantenimiento</label>
+ <select id="filtroMantenimiento" onchange="filtrarTutoriales()">
+  <option value="">Selecciona un tipo de mantenimiento</option>
+  <option value="preventivo">Mantenimiento preventivo</option>
+  <option value="correctivo">Mantenimiento correctivo</option>
+  <option value="todos">Mostrar todos los tutoriales</option>
+ </select>
  <input
- type="text"
- id="buscador"
- placeholder=" Buscar tutorial..."
- onkeyup="buscarTutorial()"
+  type="text"
+  id="buscador"
+  placeholder="Buscar dentro de los tutoriales..."
+  oninput="filtrarTutoriales()"
+  aria-label="Buscar tutorial por nombre"
  >
- </div>
+ <p id="tutorialEstado" class="tutorial-status" aria-live="polite">Selecciona mantenimiento preventivo o correctivo para ver los tutoriales correspondientes.</p>
+</div>
 
 
  <div class="tutorial-grid" id="tutorialGrid">
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="correctivo">
  <div class="tutorial-number">01</div>
  <h3>El computador se sobrecalienta</h3>
 
@@ -212,7 +221,7 @@ ElectroFix
  </article>
 
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="correctivo">
  <div class="tutorial-number">02</div>
  <h3>El computador no enciende</h3>
 
@@ -245,7 +254,7 @@ ElectroFix
  </article>
 
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="correctivo">
  <div class="tutorial-number">03</div>
  <h3>Problemas con el teclado</h3>
 
@@ -278,7 +287,7 @@ ElectroFix
  </article>
 
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="correctivo">
  <div class="tutorial-number">04</div>
  <h3>El celular se calienta demasiado</h3>
 
@@ -311,7 +320,7 @@ ElectroFix
  </article>
 
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="correctivo">
  <div class="tutorial-number">05</div>
  <h3>USB que no reconoce dispositivos</h3>
 
@@ -343,7 +352,7 @@ ElectroFix
  </article>
 
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="preventivo">
  <div class="tutorial-number">06</div>
  <h3>Limpieza de dispositivos</h3>
 
@@ -376,7 +385,7 @@ ElectroFix
  </article>
 
  
- <article class="tutorial">
+ <article class="tutorial" data-tipo="preventivo">
  <div class="tutorial-number">07</div>
  <h3>Limpieza correcta del monitor</h3>
  <p>El polvo y las huellas pueden acumularse en la pantalla. Una limpieza externa adecuada ayuda a conservarla en buen estado.</p>
@@ -389,7 +398,7 @@ ElectroFix
  </div>
  </article>
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="preventivo">
  <div class="tutorial-number">08</div>
  <h3>Liberar espacio en Windows</h3>
  <p>Los archivos temporales y elementos innecesarios pueden ocupar espacio de almacenamiento en el computador.</p>
@@ -402,7 +411,7 @@ ElectroFix
  </div>
  </article>
 
- <article class="tutorial">
+ <article class="tutorial" data-tipo="preventivo">
  <div class="tutorial-number">09</div>
  <h3>Copias de seguridad y actualizaciones</h3>
  <p>Guardar copias de los archivos importantes y mantener el sistema actualizado ayuda a proteger la información.</p>

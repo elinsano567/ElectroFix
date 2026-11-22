@@ -1,39 +1,74 @@
 // ===============================
 // CARRITO DE COMPRAS
-// Se declara fuera de DOMContentLoaded para que los botones
-// del HTML puedan acceder siempre a estas funciones.
 // ===============================
 let carrito = [];
 
 window.agregarCarrito = function (nombre, precio) {
     const precioNumerico = Number(precio);
-
     if (!nombre || !Number.isFinite(precioNumerico) || precioNumerico < 0) {
-        console.error("No se pudo agregar el producto: datos inválidos.", { nombre, precio });
         alert("No se pudo agregar este producto. Inténtalo nuevamente.");
         return;
     }
-
-    carrito.push({ nombre: nombre, precio: precioNumerico });
+    const existente = carrito.find(producto => producto.nombre === nombre);
+    if (existente) existente.cantidad += 1;
+    else carrito.push({ nombre: nombre, precio: precioNumerico, cantidad: 1 });
     actualizarCarrito();
-    alert(nombre + " fue agregado al carrito.");
 };
 
 function actualizarCarrito() {
-    const cantidad = document.getElementById("cantidad");
+    const cantidadElemento = document.getElementById("cantidad");
     const totalElemento = document.getElementById("total");
+    const lista = document.getElementById("listaCarrito");
+    const cantidadTotal = carrito.reduce((suma, producto) => suma + producto.cantidad, 0);
+    const total = carrito.reduce((suma, producto) => suma + producto.precio * producto.cantidad, 0);
 
-    if (cantidad) cantidad.textContent = carrito.length;
-
-    const total = carrito.reduce((suma, producto) => suma + producto.precio, 0);
+    if (cantidadElemento) cantidadElemento.textContent = cantidadTotal;
     if (totalElemento) totalElemento.textContent = total.toFixed(2);
+    if (!lista) return;
+
+    lista.replaceChildren();
+    if (carrito.length === 0) {
+        const mensaje = document.createElement("p");
+        mensaje.className = "cart-empty";
+        mensaje.textContent = "Tu carrito está vacío. Agrega productos desde la tienda.";
+        lista.appendChild(mensaje);
+        return;
+    }
+
+    carrito.forEach((producto, indice) => {
+        const fila = document.createElement("div");
+        fila.className = "cart-item";
+        const informacion = document.createElement("div");
+        informacion.className = "cart-item-info";
+        const nombre = document.createElement("strong");
+        nombre.textContent = producto.nombre;
+        const detalle = document.createElement("span");
+        detalle.textContent = "$" + producto.precio.toFixed(2) + " c/u · Cantidad: " + producto.cantidad;
+        informacion.append(nombre, detalle);
+
+        const subtotal = document.createElement("strong");
+        subtotal.className = "cart-subtotal";
+        subtotal.textContent = "$" + (producto.precio * producto.cantidad).toFixed(2);
+
+        const eliminar = document.createElement("button");
+        eliminar.type = "button";
+        eliminar.className = "cart-remove";
+        eliminar.textContent = "Eliminar";
+        eliminar.setAttribute("aria-label", "Eliminar " + producto.nombre);
+        eliminar.addEventListener("click", function () {
+            carrito.splice(indice, 1);
+            actualizarCarrito();
+        });
+        fila.append(informacion, subtotal, eliminar);
+        lista.appendChild(fila);
+    });
 }
 
 window.vaciarCarrito = function () {
     carrito = [];
     actualizarCarrito();
-    alert("El carrito ha sido vaciado.");
 };
+actualizarCarrito();
 
 // ===============================
 // FUNCIONES GENERALES DE ELECTROFIX

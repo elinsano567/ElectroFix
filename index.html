@@ -696,6 +696,15 @@
     </div>
 
 
+    <!-- VISOR DE IMÁGENES DE PRODUCTOS -->
+    <div id="visorProducto" class="visor-producto" role="dialog" aria-modal="true" aria-label="Imagen ampliada del producto" onclick="cerrarImagenProducto(event)">
+        <div class="visor-producto-contenido">
+            <button type="button" class="visor-cerrar" aria-label="Cerrar imagen" onclick="cerrarImagenProducto(event, true)">×</button>
+            <img id="imagenAmpliada" src="" alt="">
+            <p id="nombreImagenProducto"></p>
+        </div>
+    </div>
+
     <!-- PIE DE PÁGINA -->
     <footer>
 

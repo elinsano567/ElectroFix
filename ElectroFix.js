@@ -192,6 +192,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
+    // Mostrar por defecto los tutoriales de mantenimiento preventivo
+    const filtroInicial = document.getElementById("filtroMantenimiento");
+    if (filtroInicial) window.filtrarTutoriales();
+
     // FORMULARIO DE CONTACTO
     window.enviarFormulario = function (event) {
         event.preventDefault();
